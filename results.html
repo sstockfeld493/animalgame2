@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animal Game</title>
+
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body>
+
+<div class = 'image'>
+
+   <span class="blinking"> <h1>Guess That Animal!!</h1> </span>
+   <br>
+</div>
+<div class = "align">
+<script>
+    var dog = sessionStorage.getItem("dog");
+    var fox = sessionStorage.getItem("fox");
+    var cat = sessionStorage.getItem("cat");
+    var rabbit = sessionStorage.getItem("rabbit");
+    var squirrel = sessionStorage.getItem("squirrel");
+
+    var points = 0;
+    
+        if (dog == "dog")
+            { points = points + 1;}
+        
+        if (fox == "fox")
+            {points = points + 1;}
+        
+        if (cat == "cat")
+            {points = points + 1;}
+
+        if (rabbit == "rabbit")
+            {points = points + 1;}
+        
+        if (squirrel == "squirrel")
+            {points = points + 1;}    
+
+</script>
+
+<br>
+
+</div>
+
+<h2>You scored <script>document.write(points);</script> out of 5 points!</h2>
+
+<br>
+<div class = "align">
+<table align="center" border="3px">
+    <tr><th>Question#</th><th>CORRECT ANSWER</th><th>YOUR ANSWER</th></tr>
+    <tr><td>1</td><td>dog</td><td><script>document.write(dog);</script></td></tr>
+    <tr><td>2</td><td>fox</td><td><script>document.write(fox);</script></td></tr>
+    <tr><td>3</td><td>cat</td><td><script>document.write(cat);</script></td></tr>
+    <tr><td>4</td><td>rabbit</td><td><script>document.write(rabbit);</script></td></tr>
+    <tr><td>5</td><td>squirrel</td><td><script>document.write(squirrel);</script></td></tr>
+</table>
+<br>
+<input type="submit" value="Play Again!" class="button directions" onclick='window.open("game.html","_self")'>
+</div>
+</body>
+</html>

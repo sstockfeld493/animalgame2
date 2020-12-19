@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animal Game</title>
+
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body onload="getDog()">
+
+<div class = 'image'>
+
+   <span class="blinking"> <h1>Guess That Animal!!</h1> </span>
+   <br>
+
+    <form onsubmit="directions(); return false;">
+        <input type="submit" value="Directions" class="button directions">
+    </form>
+
+
+
+<br>
+</div>
+<div class = "align">
+<span id="pic"> </span>
+
+<br>
+<input type="text" name="guess" id="guess" class="center" size="40"> 
+<input type="submit" value="NEXT" class="button next" onclick="chngImage();">
+<br>
+</div>
+
+
+<script type="text/javascript">
+
+    var span = document.getElementById("pic");
+    var dog;
+    var cat;
+    var fox;
+    var squirrel;
+    var rabbit;
+    
+    function getDog()
+    {
+    span.innerHTML = "<img src='images/dog.jpg'>";
+    }
+
+    function directions()
+    {
+        alert('Move through the 5 images and name each animal with a single word');
+    }
+
+    function chngImage() 
+    {
+
+        if (span.innerHTML  == '<img src="images/fox.jpg">')
+        {
+            span.innerHTML = '<img src="images/cat.jpg">';
+            fox = document.getElementById("guess").value.toLowerCase();
+            sessionStorage.setItem("fox", fox);
+        }
+        else if (span.innerHTML == '<img src="images/cat.jpg">')
+        {
+            span.innerHTML =  '<img src="images/rabbit.jpg">';
+            cat = document.getElementById("guess").value.toLowerCase();
+            sessionStorage.setItem("cat", cat);
+        }
+        else if (span.innerHTML  == '<img src="images/rabbit.jpg">')
+        {
+            span.innerHTML =  '<img src="images/squirrel.jpg">';
+            rabbit = document.getElementById("guess").value.toLowerCase();
+            sessionStorage.setItem("rabbit", rabbit);
+        }
+        else if (span.innerHTML  == '<img src="images/squirrel.jpg">')
+        {
+            squirrel = document.getElementById("guess").value.toLowerCase();
+            sessionStorage.setItem("squirrel", squirrel);
+            window.open("results.html","_self");
+            
+        }
+        else
+        {
+            span.innerHTML = '<img src="images/fox.jpg">';
+            dog = document.getElementById("guess").value.toLowerCase();
+            sessionStorage.setItem("dog", dog);
+        }
+
+    }
+
+
+</script>
+</body>
+</html>
